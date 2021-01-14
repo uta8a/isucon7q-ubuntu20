@@ -7,7 +7,7 @@
   loop:
     - make
     - mysql-server
-    - python-mysqldb
+    # - python-mysqldb
 
 - name: Install golang
   shell: |
