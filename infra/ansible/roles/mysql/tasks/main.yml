@@ -7,11 +7,23 @@
   loop:
     - make
     - mysql-server
+    - python3-pip
     # - python-mysqldb
+
+- name: Install PyMySQL
+  pip:
+    name: PyMySQL
+
+- name: Install golang binary
+  get_url:
+    url: https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
+    dest: /home/isucon/go.tar.gz
+  args:
+    creates: /home/isucon/local/go/bin/go
+  become_user: isucon
 
 - name: Install golang
   shell: |
-    wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /home/isucon/go.tar.gz
     mkdir /home/isucon/local
     tar -C /home/isucon/local -xzf /home/isucon/go.tar.gz
   args:
