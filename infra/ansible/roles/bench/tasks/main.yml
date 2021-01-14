@@ -1,0 +1,27 @@
+---
+
+- name: Install make
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - make
+
+- name: Install golang
+  shell: |
+    wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /home/isucon/go.tar.gz
+    tar -C /home/isucon/local -xzf /home/isucon/go.tar.gz
+  args:
+    creates: /home/isucon/local/go/bin/go
+  become_user: isucon
+
+- name: bench
+  shell: |
+    export PATH="$HOME/local/go/bin:$HOME/go/bin:$PATH"
+    go get github.com/constabulary/gb/...
+    cd /home/isucon/isubata/bench
+    gb vendor restore
+    make
+  args:
+    creates: /home/isucon/isubata/bench/bin/bench
+  become_user: isucon

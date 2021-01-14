@@ -1,0 +1,28 @@
+---
+
+- name: Install git sudo
+  apt:
+    name: "{{item}}"
+    state: present
+  loop:
+    - git
+    - sudo
+
+- name: add user isucon
+  user:
+    name: isucon
+
+- name: copy file to system
+  copy:
+    src: 90-isucon-user
+    dest: /etc/sudoers.d/90-isucon-user
+    owner: root
+    group: root
+    mode: 0640
+
+- name: TODO change source code
+  git:
+    repo: 'https://github.com/isucon/isucon7-qualify.git'
+    dest: /home/isucon/isubata
+    update: no
+  become_user: isucon
