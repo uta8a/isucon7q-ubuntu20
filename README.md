@@ -7,3 +7,6 @@
   - https://github.com/matsuu/ansible-isucon (MIT)
   - https://github.com/matsuu/vagrant-isucon (MIT)
   - https://github.com/isucon/isucon7-qualify (MIT)
+
+## 変更点
+- goのインストール方法をxbuildからgolang公式ページでの方法に切り替え
