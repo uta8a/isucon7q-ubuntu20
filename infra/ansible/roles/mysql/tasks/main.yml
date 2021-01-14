@@ -19,8 +19,6 @@
     url: https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
     validate_certs: no
     dest: /home/isucon/go.tar.gz
-  args:
-    creates: /home/isucon/local/go/bin/go
   become_user: isucon
 
 - name: Install golang
