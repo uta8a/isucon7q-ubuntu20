@@ -11,6 +11,7 @@
 - name: Install golang
   shell: |
     wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /home/isucon/go.tar.gz
+    mkdir /home/isucon/local
     tar -C /home/isucon/local -xzf /home/isucon/go.tar.gz
   args:
     creates: /home/isucon/local/go/bin/go
