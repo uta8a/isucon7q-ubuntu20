@@ -21,13 +21,13 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get install -y --no-install-recommends ansible git
 
-      rm -rf ansible-isucon
-      git clone https://github.com/matsuu/ansible-isucon.git # 変更加える
+      rm -rf isucon7q-ubuntu20
+      git clone https://github.com/uta8a/isucon7q-ubuntu20
       (
-        cd ansible-isucon/isucon7-qualifier
-	PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local image.yml
+        cd isucon7q-ubuntu20/infra/ansible/
+        PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local image.yml
       )
-      rm -rf ansible-isucon
+      rm -rf isucon7q-ubuntu20
     SHELL
   end
 
@@ -38,13 +38,13 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get install -y --no-install-recommends ansible git
 
-      rm -rf ansible-isucon
-      git clone https://github.com/matsuu/ansible-isucon.git # 変更加える
+      rm -rf isucon7q-ubuntu20
+      git clone https://github.com/uta8a/isucon7q-ubuntu20
       (
-        cd ansible-isucon/isucon7-qualifier
+        cd isucon7q-ubuntu20/infra/ansible/        
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local bench.yml
       )
-      rm -rf ansible-isucon
+      rm -rf isucon7q-ubuntu20
     SHELL
   end
 end
