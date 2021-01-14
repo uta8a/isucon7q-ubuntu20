@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
       git clone https://github.com/uta8a/isucon7q-ubuntu20
       (
         cd isucon7q-ubuntu20/infra/ansible/
-        PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local image.yml
+        ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3 PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local image.yml
       )
       rm -rf isucon7q-ubuntu20
     SHELL
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
       git clone https://github.com/uta8a/isucon7q-ubuntu20
       (
         cd isucon7q-ubuntu20/infra/ansible/        
-        PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local bench.yml
+        ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3 PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i local bench.yml
       )
       rm -rf isucon7q-ubuntu20
     SHELL
